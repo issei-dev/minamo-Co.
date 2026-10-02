@@ -1,3 +1,5 @@
+<!-- Output: html --><!-- Filename: 採用情報 -->
+<!-- File: careers.html -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -8,6 +10,73 @@
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/animations.css">
+
+  <style>
+    /* 採用ページ：社内の様子 */
+    .careers-office-section {
+      background: #F8FAFC;
+      border-top: 1px solid var(--color-border, #E2E8F0);
+      border-bottom: 1px solid var(--color-border, #E2E8F0);
+    }
+
+    .careers-office-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .careers-office-card {
+      min-width: 0;
+      margin: 0;
+      overflow: hidden;
+      background: #FFFFFF;
+      border: 1px solid var(--color-border, #E2E8F0);
+      border-radius: var(--radius-md, 16px);
+    }
+
+    .careers-office-photo {
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: #E2E8F0;
+    }
+
+    .careers-office-photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .careers-office-caption {
+      padding: 22px 24px 24px;
+    }
+
+    .careers-office-caption h3 {
+      margin: 0 0 8px;
+      color: var(--color-navy, #0F172A);
+      font-size: 1.125rem;
+      line-height: 1.5;
+    }
+
+    .careers-office-caption p {
+      margin: 0;
+      color: var(--color-text-muted, #64748B);
+      font-size: 0.9375rem;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 767px) {
+      .careers-office-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+      }
+
+      .careers-office-caption {
+        padding: 18px 20px 20px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -29,7 +98,9 @@
         <div class="header-cta">
           <button class="btn btn-primary btn-sm" data-open-modal="contact">
             お問い合わせ
-            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
           </button>
         </div>
       </nav>
@@ -95,7 +166,109 @@
     </div>
   </section>
 
-  <!-- 2. Work Style & How We Work (仕事の進め方) -->
+  <!-- 2. Office Gallery: 社内の様子 -->
+  <section class="section careers-office-section" aria-labelledby="office-gallery-title">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <div class="section-tag">
+          <span class="section-tag-dot"></span>
+          <span>Our Office</span>
+        </div>
+        <h2 class="section-title" id="office-gallery-title">社内の様子</h2>
+        <p class="section-lead">
+          日々の仕事の舞台となるオフィスをご紹介します。ミナモで働く雰囲気を、写真から感じてみてください。
+        </p>
+      </div>
+
+      <!--
+        掲載用の写真は別途ご用意ください。
+        以下の画像を assets/images/ に配置すると表示されます。
+
+        office-workspace.jpg : ワークスペース
+        office-meeting.jpg   : ミーティングスペース
+        office-lounge.jpg    : 共有スペース
+        office-entrance.jpg  : エントランス
+
+        別のファイル名や形式を使用する場合は、各 img の src を変更してください。
+        写真に合わせて alt、見出し、説明文も変更してください。
+        推奨画像サイズ：横1600px × 縦1000px。
+
+        写真を増やす場合は figure 要素を複製し、画像と説明文を変更してください。
+        写真を減らす場合は該当する figure 要素を削除してください。
+      -->
+      <div class="careers-office-grid reveal reveal-delay-1">
+        <figure class="careers-office-card">
+          <div class="careers-office-photo">
+            <img
+              src="assets/images/office-workspace.jpg"
+              alt="ミナモのオフィス内のワークスペース"
+              width="1600"
+              height="1000"
+              loading="lazy"
+              decoding="async"
+            >
+          </div>
+          <figcaption class="careers-office-caption">
+            <h3>ワークスペース</h3>
+            <p>メンバーが日々の業務に取り組む執務エリアです。</p>
+          </figcaption>
+        </figure>
+
+        <figure class="careers-office-card">
+          <div class="careers-office-photo">
+            <img
+              src="assets/images/office-meeting.jpg"
+              alt="ミナモのオフィス内のミーティングスペース"
+              width="1600"
+              height="1000"
+              loading="lazy"
+              decoding="async"
+            >
+          </div>
+          <figcaption class="careers-office-caption">
+            <h3>ミーティングスペース</h3>
+            <p>チームでの打ち合わせや、アイデアを共有する場をご紹介します。</p>
+          </figcaption>
+        </figure>
+
+        <figure class="careers-office-card">
+          <div class="careers-office-photo">
+            <img
+              src="assets/images/office-lounge.jpg"
+              alt="ミナモのオフィス内の共有スペース"
+              width="1600"
+              height="1000"
+              loading="lazy"
+              decoding="async"
+            >
+          </div>
+          <figcaption class="careers-office-caption">
+            <h3>共有スペース</h3>
+            <p>仕事の合間のひと息や、メンバー同士の交流の場です。</p>
+          </figcaption>
+        </figure>
+
+        <figure class="careers-office-card">
+          <div class="careers-office-photo">
+            <img
+              src="assets/images/office-entrance.jpg"
+              alt="ミナモのオフィスのエントランス"
+              width="1600"
+              height="1000"
+              loading="lazy"
+              decoding="async"
+            >
+          </div>
+          <figcaption class="careers-office-caption">
+            <h3>エントランス</h3>
+            <p>ミナモのオフィスを訪れる方をお迎えする入口です。</p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Work Style & How We Work: 仕事の進め方 -->
   <section class="section" style="background: #FFFFFF; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); padding: 80px 0;">
     <div class="container">
       <div class="section-header text-center reveal">
@@ -112,7 +285,12 @@
       <div class="grid-3 reveal reveal-delay-1">
         <div class="card">
           <div class="card-icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
           </div>
           <h3 style="font-size: 1.25rem; margin-bottom: 12px; color: var(--color-navy);">少数精鋭のクロスファンクショナル体制</h3>
           <p style="color: var(--color-text-muted); font-size: 0.9375rem; line-height: 1.8;">
@@ -122,7 +300,11 @@
 
         <div class="card">
           <div class="card-icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="20" x2="18" y2="10"/>
+              <line x1="12" y1="20" x2="12" y2="4"/>
+              <line x1="6" y1="20" x2="6" y2="14"/>
+            </svg>
           </div>
           <h3 style="font-size: 1.25rem; margin-bottom: 12px; color: var(--color-navy);">数字とロジックを共通言語に</h3>
           <p style="color: var(--color-text-muted); font-size: 0.9375rem; line-height: 1.8;">
@@ -132,7 +314,10 @@
 
         <div class="card">
           <div class="card-icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
           </div>
           <h3 style="font-size: 1.25rem; margin-bottom: 12px; color: var(--color-navy);">自律と裁量を重んじる働き方</h3>
           <p style="color: var(--color-text-muted); font-size: 0.9375rem; line-height: 1.8;">
@@ -143,7 +328,7 @@
     </div>
   </section>
 
-  <!-- 3. Benefits & Systems (働き方・制度) -->
+  <!-- 4. Benefits & Systems: 働き方・制度 -->
   <section class="section">
     <div class="container">
       <div class="section-header text-center reveal">
@@ -221,7 +406,7 @@
     </div>
   </section>
 
-  <!-- 4. Job Openings (募集中の職種) -->
+  <!-- 5. Job Openings: 募集中の職種 -->
   <section class="section" style="background: #F8FAFC; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
     <div class="container container-narrow">
       <div class="section-header reveal">
@@ -373,7 +558,7 @@
     </div>
   </section>
 
-  <!-- 5. Selection Process (選考の流れ) -->
+  <!-- 6. Selection Process: 選考の流れ -->
   <section class="section">
     <div class="container">
       <div class="section-header text-center reveal">
@@ -443,7 +628,7 @@
     </div>
   </section>
 
-  <!-- 6. Entry CTA (応募導線) -->
+  <!-- 7. Entry CTA: 応募導線 -->
   <section class="section" style="background: linear-gradient(135deg, rgba(26, 91, 216, 0.04) 0%, rgba(52, 198, 217, 0.08) 100%); border-top: 1px solid var(--color-border);">
     <div class="container text-center reveal">
       <h2 class="section-title" style="margin-bottom: 20px;">まずはカジュアルにお話ししませんか？</h2>
@@ -510,13 +695,17 @@
           </p>
         </div>
         <button class="modal-close-btn" data-close-modal aria-label="閉じる">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
         </button>
       </div>
       <div class="modal-body">
         <div id="contact-success-msg" style="display: none; text-align: center; padding: 32px 16px;">
           <div style="width: 56px; height: 56px; background: rgba(52, 198, 217, 0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; color: var(--color-primary);">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
           </div>
           <h4 style="font-size: 1.25rem; margin-bottom: 8px; color: var(--color-navy);">ご応募ありがとうございます</h4>
           <p style="color: var(--color-text-muted); font-size: 0.9375rem;">
