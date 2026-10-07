@@ -1,3 +1,5 @@
+<!-- Output: html -->
+<!-- File: blog.html -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -5,9 +7,136 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>会社ブログ｜株式会社ミナモ（MINAMO Inc.）</title>
   <meta name="description" content="株式会社ミナモ（MINAMO Inc.）の公式ブログです。EC・広告運用、計測・データ活用、クリエイティブ、チームカルチャー、会社からのお知らせをお届けします。">
+
+  <link rel="canonical" href="https://minamo-inc.github.io/blog.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="株式会社ミナモ（MINAMO Inc.）">
+  <meta property="og:title" content="会社ブログ｜株式会社ミナモ（MINAMO Inc.）">
+  <meta property="og:description" content="EC・広告運用の現場知見、計測・データ活用のリアル、クリエイティブ検証、ミナモの働く環境やカルチャーを発信しています。">
+  <meta property="og:url" content="https://minamo-inc.github.io/blog.html">
+  <meta property="og:image" content="https://minamo-inc.github.io/assets/images/ogp-default.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="alternate icon" href="assets/images/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/animations.css">
+  <style>
+    /* ===== Blog Index Local Styles ===== */
+
+    /* 注目記事 */
+    .featured-post{
+      display:grid;grid-template-columns:1.05fr 1fr;gap:0;
+      border:1px solid var(--color-border,#E3E8EF);border-radius:16px;
+      overflow:hidden;background:#fff;margin:32px 0 56px;
+      transition:box-shadow .25s,transform .25s;
+    }
+    .featured-post:hover{transform:translateY(-3px);box-shadow:0 16px 38px rgba(11,27,52,.09);}
+    .featured-visual{
+      position:relative;min-height:340px;overflow:hidden;
+      background:linear-gradient(150deg,#0B1B34,#123A7A 55%,#1A5BD8);
+      display:flex;align-items:flex-end;padding:28px;
+    }
+    .featured-visual::after{
+      content:"";position:absolute;right:-90px;top:-70px;width:300px;height:300px;
+      border-radius:50%;border:1.5px solid rgba(255,255,255,.22);
+      box-shadow:0 0 0 40px rgba(255,255,255,.06);
+    }
+    .featured-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+    .featured-badge{
+      position:relative;z-index:2;font-size:.6875rem;font-weight:800;letter-spacing:.18em;
+      color:#fff;border:1px solid rgba(255,255,255,.5);border-radius:999px;
+      padding:6px 14px;background:rgba(11,27,52,.35);
+    }
+    .featured-body{padding:40px 38px;}
+    .featured-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+    .featured-body h2{
+      font-size:clamp(1.25rem,2.4vw,1.75rem);line-height:1.55;font-weight:800;
+      color:var(--color-navy,#0B1B34);margin:0 0 16px;
+    }
+    .featured-body h2 a{color:inherit;text-decoration:none;}
+    .featured-body h2 a:hover{color:var(--color-primary,#1A5BD8);}
+    .featured-body p{
+      font-size:.9375rem;line-height:1.85;color:var(--color-text-muted,#5B6472);margin:0 0 24px;
+    }
+
+    /* 記事カード */
+    .post-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(316px,1fr));gap:24px;}
+    .post-card{
+      border:1px solid var(--color-border,#E3E8EF);border-radius:14px;background:#fff;
+      padding:26px 24px 24px;display:flex;flex-direction:column;
+      transition:transform .25s,box-shadow .25s,border-color .25s;
+    }
+    .post-card:hover{
+      transform:translateY(-4px);box-shadow:0 14px 34px rgba(11,27,52,.08);
+      border-color:rgba(26,91,216,.28);
+    }
+    .post-card[hidden],.coming-card[hidden]{display:none;}
+    .post-card-top{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+    .post-card h3{
+      font-size:1.0625rem;line-height:1.65;font-weight:700;
+      color:var(--color-navy,#0B1B34);margin:0 0 12px;
+    }
+    .post-card h3 a{color:inherit;text-decoration:none;}
+    .post-card h3 a:hover{color:var(--color-primary,#1A5BD8);}
+    .post-card .excerpt{
+      font-size:.875rem;line-height:1.85;color:var(--color-text-muted,#5B6472);margin:0 0 20px;
+    }
+    .post-card-foot{margin-top:auto;padding-top:16px;border-top:1px solid var(--color-border,#E3E8EF);}
+
+    /* 共通パーツ */
+    .cat-tag{
+      display:inline-block;font-size:.6875rem;font-weight:800;letter-spacing:.08em;
+      color:#fff;background:var(--color-primary,#1A5BD8);padding:4px 10px;border-radius:5px;
+      white-space:nowrap;
+    }
+    .cat-tag.c-ec{background:#1A5BD8;}
+    .cat-tag.c-data{background:#34C6D9;color:#0B1B34;}
+    .cat-tag.c-creative{background:#7A5AC4;}
+    .cat-tag.c-culture{background:#B4692F;}
+    .cat-tag.c-news{background:#0B1B34;}
+    .post-date{font-size:.75rem;color:var(--color-text-muted,#5B6472);letter-spacing:.04em;}
+    .byline{display:flex;align-items:center;gap:10px;font-size:.8125rem;color:var(--color-text-muted,#5B6472);}
+    .byline .ava{
+      width:32px;height:32px;border-radius:50%;flex:none;overflow:hidden;
+      display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(150deg,#EAF1FF,#E1F5F8);
+      color:var(--color-primary,#1A5BD8);font-weight:800;font-size:.6875rem;
+    }
+    .byline .ava img{width:100%;height:100%;object-fit:cover;}
+    .byline b{color:var(--color-navy,#0B1B34);font-weight:700;}
+    .byline .rt{margin-left:auto;font-size:.6875rem;color:var(--color-text-light,#94A3B8);}
+
+    /* 準備中カード */
+    .coming-card{
+      border:1px dashed rgba(26,91,216,.32);border-radius:14px;background:#F8FAFC;
+      padding:26px 24px;display:flex;flex-direction:column;justify-content:center;
+    }
+    .coming-card .label{
+      font-size:.6875rem;font-weight:800;letter-spacing:.12em;
+      color:var(--color-primary,#1A5BD8);margin-bottom:12px;
+    }
+    .coming-card h3{
+      font-size:1rem;line-height:1.65;font-weight:700;
+      color:var(--color-navy,#0B1B34);margin:0 0 10px;
+    }
+    .coming-card p{font-size:.8125rem;line-height:1.8;color:var(--color-text-muted,#5B6472);margin:0;}
+
+    /* 件数表示 */
+    .result-count{
+      font-size:.8125rem;color:var(--color-text-muted,#5B6472);
+      margin:28px 0 20px;letter-spacing:.02em;
+    }
+    .no-result{text-align:center;padding:56px 20px;color:var(--color-text-muted,#5B6472);font-size:.9375rem;}
+
+    @media(max-width:860px){
+      .featured-post{grid-template-columns:1fr;}
+      .featured-visual{min-height:200px;}
+      .featured-body{padding:30px 26px;}
+    }
+  </style>
 </head>
 <body>
 
@@ -67,6 +196,7 @@
       <h1 class="subpage-title">会社ブログ</h1>
       <p class="subpage-desc">
         EC・広告運用の現場知見、計測・データ活用のリアル、クリエイティブ検証、ミナモの働く環境やカルチャーを発信していきます。
+        うまくいった施策だけを並べても役に立たないと考えているため、判断の理由と、外したときに何を直したかを書いています。
       </p>
     </div>
   </div>
@@ -80,40 +210,97 @@
         <div style="font-size: 0.8125rem; font-weight: 700; color: var(--color-navy); margin-bottom: 12px; letter-spacing: 0.05em;">
           CATEGORIES
         </div>
-        <div class="category-pills">
-          <button class="category-pill active">すべて</button>
-          <button class="category-pill">EC・広告運用</button>
-          <button class="category-pill">計測・データ活用</button>
-          <button class="category-pill">クリエイティブ</button>
-          <button class="category-pill">チーム・カルチャー</button>
-          <button class="category-pill">会社からのお知らせ</button>
+        <div class="category-pills" id="category-pills">
+          <button class="category-pill active" data-cat="">すべて</button>
+          <button class="category-pill" data-cat="ec">EC・広告運用</button>
+          <button class="category-pill" data-cat="data">計測・データ活用</button>
+          <button class="category-pill" data-cat="creative">クリエイティブ</button>
+          <button class="category-pill" data-cat="culture">チーム・カルチャー</button>
+          <button class="category-pill" data-cat="news">会社からのお知らせ</button>
         </div>
       </div>
 
-      <!-- Empty State: 記事を準備中です -->
-      <div class="empty-blog-box reveal reveal-delay-1" style="margin-top: 24px;">
-        <div class="empty-icon-wrap">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      <!-- Featured Post -->
+      <article class="featured-post reveal reveal-delay-1" data-cat="culture">
+        <a class="featured-visual" href="blog-summer-bbq-2024.html" aria-label="「4人で海に行った話。」を読む">
+          <!-- <img src="assets/images/blog/2024-08-bbq/ogp.jpg" alt="三浦海岸でのBBQの様子"> -->
+          <span class="featured-badge">FEATURED</span>
+        </a>
+        <div class="featured-body">
+          <div class="featured-meta">
+            <span class="cat-tag c-culture">チーム・カルチャー</span>
+            <time class="post-date" datetime="2024-08-19">2024年8月19日</time>
+          </div>
+          <h2><a href="blog-summer-bbq-2024.html">4人で海に行った話。全員揃わなかったBBQのこと</a></h2>
+          <p>
+            8月の土曜日、三浦海岸でBBQをしました。会社は6人です。行けたのは4人でした。
+            日程を代表と1人で決めてしまったこと、そして「一人3社まで」という担当上限の話が
+            火を落としたあとの砂浜で出てきたこと。楽しかった話と、楽しいだけで終わらせてはいけない話を、両方書きます。
+          </p>
+          <div class="byline">
+            <span class="ava">MI</span>
+            <span><b>三浦 湊</b>　代表取締役</span>
+            <span class="rt">読了 6分</span>
+          </div>
         </div>
-        <h3 style="font-size: 1.5rem; margin-bottom: 12px; color: var(--color-navy);">現在、記事を準備中です</h3>
-        <p style="color: var(--color-text-muted); font-size: 0.9375rem; max-width: 580px; margin: 0 auto 28px; line-height: 1.8;">
-          株式会社ミナモでは、読者の皆様に確かな知見をお届けできるよう、執筆・検証・承認プロセスを整え順次公開準備を進めております。<br>
-          公開まで今しばらくお待ちください。
-        </p>
+      </article>
 
-        <!-- Category Roadmap / Preview Box -->
-        <div style="max-width: 680px; margin: 0 auto; background: #F8FAFC; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 24px; text-align: left;">
-          <h4 style="font-size: 0.9375rem; color: var(--color-navy); margin-bottom: 16px; font-weight: 700;">
-            今後発信を予定しているトピックス：
-          </h4>
-          <ul style="padding-left: 20px; font-size: 0.875rem; color: var(--color-text-body); line-height: 1.8;">
-            <li><strong>EC・広告運用：</strong> 獲得単価（CPA）とLTVを両立させる媒体別運用のポイント</li>
-            <li><strong>計測・データ活用：</strong> GA4と社内BIを連携させた意思決定ダッシュボードの作り方</li>
-            <li><strong>クリエイティブ：</strong> 購買行動を促す動画・バナー・LP設計の現場検証録</li>
-            <li><strong>チーム・カルチャー：</strong> 11名の専門家が連携するミナモの日常や「波紋休暇」などの働き方</li>
-            <li><strong>お知らせ：</strong> 新サービス展開や採用に関する公式アナウンス</li>
-          </ul>
-        </div>
+      <!-- Result Count -->
+      <p class="result-count" id="result-count">記事を新着順に表示しています（全1件）</p>
+
+      <!-- Post Grid -->
+      <div class="post-grid reveal reveal-delay-2" id="post-grid">
+
+        <!-- 記事01 -->
+        <article class="post-card" data-cat="culture">
+          <div class="post-card-top">
+            <span class="cat-tag c-culture">チーム・カルチャー</span>
+            <time class="post-date" datetime="2024-08-19">2024.08.19</time>
+          </div>
+          <h3><a href="blog-summer-bbq-2024.html">4人で海に行った話。全員揃わなかったBBQのこと</a></h3>
+          <p class="excerpt">
+            6人の会社で、BBQに行けたのは4人でした。日程の決め方を反省しつつ、
+            砂浜で出てきた「一人何社まで見られるか」という会話について書きます。
+          </p>
+          <div class="post-card-foot">
+            <div class="byline">
+              <span class="ava">MI</span>
+              <span><b>三浦 湊</b></span>
+              <span class="rt">読了 6分</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 公開予定 -->
+        <article class="coming-card" data-cat="ec">
+          <p class="label">COMING SOON</p>
+          <h3>検索広告のアカウント構造を、引き継げる形に作り直す</h3>
+          <p>担当が変わった瞬間に触れなくなるアカウントを、私たちは失敗と呼んでいます。命名規則・階層・除外の管理方法を、設計書ごと公開する予定です。</p>
+        </article>
+
+        <article class="coming-card" data-cat="data">
+          <p class="label">COMING SOON</p>
+          <h3>計測設計で、最初に「捨てる」べきイベント10個</h3>
+          <p>取れるものを全部取る設計は、3か月後に誰も読めなくなります。捨てる判断のほうが設計の質を決めるという話を、実装例つきで。</p>
+        </article>
+
+      </div>
+
+      <!-- No Result -->
+      <p class="no-result" id="no-result" hidden>該当するカテゴリの記事はまだありません。</p>
+
+      <!-- Roadmap -->
+      <div class="reveal" style="max-width: 680px; margin: 56px auto 0; background: #F8FAFC; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 24px;">
+        <h4 style="font-size: 0.9375rem; color: var(--color-navy); margin-bottom: 16px; font-weight: 700;">
+          今後発信を予定しているトピックス
+        </h4>
+        <ul style="padding-left: 20px; font-size: 0.875rem; color: var(--color-text-body); line-height: 1.8;">
+          <li><strong>EC・広告運用：</strong> 獲得単価（CPA）とLTVを両立させる媒体別運用のポイント</li>
+          <li><strong>計測・データ活用：</strong> 社内BIを連携させた意思決定ダッシュボードの作り方</li>
+          <li><strong>クリエイティブ：</strong> 購買行動を促す動画・バナー・LP設計の現場検証録</li>
+          <li><strong>チーム・カルチャー：</strong> 11名の専門家が連携するミナモの日常や「波紋休暇」などの働き方</li>
+          <li><strong>お知らせ：</strong> 新サービス展開や採用に関する公式アナウンス</li>
+        </ul>
       </div>
 
     </div>
@@ -124,7 +311,7 @@
     <div class="container text-center reveal">
       <h2 class="section-title" style="margin-bottom: 20px;">知見や事例のご相談について</h2>
       <p class="section-lead" style="margin-left: auto; margin-right: auto; margin-bottom: 36px;">
-        自社のEC課題や広告運用の現状診断など、ブログ記事公開前でも直接担当者へご相談いただけます。
+        自社のEC課題や広告運用の現状診断など、記事になっていないテーマでも直接担当者へご相談いただけます。
       </p>
       <button class="btn btn-primary btn-lg" data-open-modal="contact">お問い合わせ・ご相談はこちら</button>
     </div>
@@ -169,7 +356,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <div>&copy; 2026 MINAMO Inc. All Rights Reserved.</div>
+        <div>&copy; <span data-current-year>2026</span> MINAMO Inc. All Rights Reserved.</div>
         <div>株式会社ミナモ（MINAMO Inc.）</div>
       </div>
     </div>
@@ -201,7 +388,11 @@
           <button class="btn btn-outline btn-sm" data-close-modal style="margin-top: 24px;">閉じる</button>
         </div>
 
-        <form id="contact-form">
+        <form id="contact-form" action="https://formspree.io/f/XXXXXXXX" method="POST">
+          <input type="hidden" name="_subject" value="【MINAMO】Webサイトからのお問い合わせ">
+          <input type="hidden" name="_replyto" value="">
+          <input type="hidden" name="_page" value="blog.html">
+
           <div class="form-group">
             <label class="form-label" for="contact-name">お名前<span class="badge-req">必須</span></label>
             <input class="form-input" type="text" id="contact-name" name="name" placeholder="山田 太郎" required>
@@ -235,6 +426,6 @@
     </div>
   </div>
 
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
