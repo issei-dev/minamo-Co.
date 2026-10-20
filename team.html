@@ -5,12 +5,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>社員紹介｜株式会社ミナモ（MINAMO Inc.）</title>
-  <meta name="description" content="株式会社ミナモ（MINAMO Inc.）のメンバー紹介ページです。経営、広告運用、クリエイティブ、テクノロジー、コンサルティングなど、各専門性を持つ社員16名をご紹介します。">
+  <title>社員紹介・インタビュー｜株式会社ミナモ（MINAMO Inc.）</title>
+  <meta name="description" content="株式会社ミナモ（MINAMO Inc.）のメンバー紹介ページです。経営、広告運用、クリエイティブ、テクノロジー、コンサルティングなど、各専門性を持つ社員16名をご紹介します。社員インタビューも公開中です。">
   <link rel="canonical" href="https://minamo-inc.github.io/team.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="株式会社ミナモ（MINAMO Inc.）">
-  <meta property="og:title" content="社員紹介｜株式会社ミナモ（MINAMO Inc.）">
+  <meta property="og:title" content="社員紹介・インタビュー｜株式会社ミナモ（MINAMO Inc.）">
   <meta property="og:description" content="異なる専門性をかけ合わせ、一社一社の事業成長に寄り添うミナモのメンバーをご紹介します。">
   <meta property="og:url" content="https://minamo-inc.github.io/team.html">
   <meta property="og:image" content="https://minamo-inc.github.io/assets/images/ogp-default.jpg">
@@ -30,6 +30,8 @@
 
     .team-grid .team-card {
       min-width: 0;
+      display: flex;
+      flex-direction: column;
     }
 
     /* 写真の表示領域を縦横比2:3に統一 */
@@ -72,22 +74,45 @@
       flex: none;
     }
 
-    /* 2023年 創業メンバー */
     .team-join.j-founder {
       color: #0B1B34;
       background: rgba(11, 27, 52, 0.08);
     }
 
-    /* 2026年 入社（中途） */
     .team-join.j-2026 {
       color: #1A5BD8;
       background: rgba(26, 91, 216, 0.09);
     }
 
-    /* 2027年 新卒入社 */
     .team-join.j-2027 {
       color: #0E7C8A;
       background: rgba(52, 198, 217, 0.16);
+    }
+
+    /* ===== インタビューへのカード内リンク ===== */
+    .team-iv-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 12px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--color-primary, #1A5BD8);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color .2s, gap .2s;
+    }
+
+    .team-iv-link:hover {
+      border-bottom-color: currentColor;
+      gap: 10px;
+    }
+
+    .team-iv-link svg {
+      width: 13px;
+      height: 13px;
+      flex: none;
     }
 
     /* ===== グループ見出し ===== */
@@ -174,6 +199,117 @@
       margin: 0;
     }
 
+    /* ===== インタビュー導線ブロック ===== */
+    .iv-banner {
+      position: relative;
+      overflow: hidden;
+      margin-top: 64px;
+      border-radius: 16px;
+      background: linear-gradient(150deg, #0B1B34, #123A7A 58%, #1A5BD8);
+      color: #fff;
+      padding: 44px 48px;
+    }
+
+    .iv-banner::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      bottom: -140px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255, 255, 255, .2);
+      box-shadow: 0 0 0 40px rgba(255, 255, 255, .055);
+      pointer-events: none;
+    }
+
+    .iv-banner-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .iv-banner .eyebrow {
+      font-size: 0.6875rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      color: rgba(255, 255, 255, .72);
+      margin: 0 0 12px;
+    }
+
+    .iv-banner h3 {
+      font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+      font-weight: 800;
+      line-height: 1.5;
+      color: #fff;
+      margin: 0 0 16px;
+    }
+
+    .iv-banner p {
+      font-size: 0.9375rem;
+      line-height: 1.9;
+      color: rgba(255, 255, 255, .86);
+      margin: 0 0 20px;
+      max-width: 640px;
+    }
+
+    .iv-banner-names {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .iv-banner-names li a {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, .42);
+      background: rgba(11, 27, 52, .28);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      transition: background .2s, border-color .2s;
+    }
+
+    .iv-banner-names li a:hover {
+      background: rgba(255, 255, 255, .16);
+      border-color: rgba(255, 255, 255, .7);
+    }
+
+    .iv-banner-names .dept {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      color: #34C6D9;
+    }
+
+    .iv-banner-cta {
+      flex: none;
+    }
+
+    @media (max-width: 900px) {
+      .iv-banner {
+        padding: 32px 26px;
+      }
+
+      .iv-banner-inner {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .iv-banner-cta .btn {
+        width: 100%;
+      }
+    }
+
     @media (max-width: 767px) {
       .team-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -193,6 +329,11 @@
         font-size: 0.625rem;
         padding: 2px 7px;
       }
+
+      .team-iv-link {
+        font-size: 0.6875rem;
+        margin-top: 10px;
+      }
     }
   </style>
 </head>
@@ -209,7 +350,7 @@
           <li><a href="index.html" class="nav-link">ホーム</a></li>
           <li><a href="company.html" class="nav-link">会社概要</a></li>
           <li><a href="services.html" class="nav-link">提供サービス</a></li>
-          <li><a href="team.html" class="nav-link active">社員紹介</a></li>
+          <li><a href="team.html" class="nav-link active">社員紹介・インタビュー</a></li>
           <li><a href="blog.html" class="nav-link">会社ブログ</a></li>
           <li><a href="careers.html" class="nav-link">求人</a></li>
         </ul>
@@ -236,7 +377,7 @@
       <li><a href="index.html" class="nav-link">ホーム</a></li>
       <li><a href="company.html" class="nav-link">会社概要</a></li>
       <li><a href="services.html" class="nav-link">提供サービス</a></li>
-      <li><a href="team.html" class="nav-link active">社員紹介</a></li>
+      <li><a href="team.html" class="nav-link active">社員紹介・インタビュー</a></li>
       <li><a href="blog.html" class="nav-link">会社ブログ</a></li>
       <li><a href="careers.html" class="nav-link">求人</a></li>
       <li style="margin-top: 16px;">
@@ -256,6 +397,7 @@
       <h1 class="subpage-title">社員紹介</h1>
       <p class="subpage-desc">
         ミナモで働くメンバーをご紹介します。異なる専門性をかけ合わせ、一社一社の事業成長に寄り添っています。
+        一部のメンバーについては、<a href="interview.html">社員インタビュー</a>で日々の業務や働く環境を詳しくお話ししています。
       </p>
     </div>
   </div>
@@ -337,6 +479,12 @@
             <h3 class="team-name">白石 佳澄</h3>
             <p class="team-role">広告運用チーム</p>
             <p class="team-join j-founder">2023年 創業メンバー</p>
+            <a class="team-iv-link" href="interview.html#iv-shiraishi">
+              インタビューを読む
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
           </div>
         </div>
 
@@ -375,6 +523,12 @@
             <h3 class="team-name">桐谷 遥</h3>
             <p class="team-role">クリエイティブチーム</p>
             <p class="team-join j-founder">2023年 創業メンバー</p>
+            <a class="team-iv-link" href="interview.html#iv-kiritani">
+              インタビューを読む
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
           </div>
         </div>
 
@@ -413,6 +567,12 @@
             <h3 class="team-name">久保 果林</h3>
             <p class="team-role">カスタマーサクセス</p>
             <p class="team-join j-founder">2023年 創業メンバー</p>
+            <a class="team-iv-link" href="interview.html#iv-kubo">
+              インタビューを読む
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
           </div>
         </div>
       </div>
@@ -628,6 +788,45 @@
           </div>
         </div>
       </div>
+
+      <!-- ===== インタビュー導線 ===== -->
+      <div class="iv-banner reveal">
+        <div class="iv-banner-inner">
+          <div>
+            <p class="eyebrow">MEMBER INTERVIEW</p>
+            <h3>働く人の話を、もう少し詳しく。</h3>
+            <p>
+              日々どんな仕事をしているのか、休みの日に何をしているのか、この会社のどこが好きなのか。
+              メンバー本人の言葉でお話ししています。
+              うまくいった話だけでは判断材料にならないと考えているため、迷ったことや反省もそのまま載せています。
+            </p>
+            <ul class="iv-banner-names">
+              <li>
+                <a href="interview.html#iv-shiraishi">
+                  白石 佳澄
+                  <span class="dept">広告運用</span>
+                </a>
+              </li>
+              <li>
+                <a href="interview.html#iv-kiritani">
+                  桐谷 遥
+                  <span class="dept">クリエイティブ</span>
+                </a>
+              </li>
+              <li>
+                <a href="interview.html#iv-kubo">
+                  久保 果林
+                  <span class="dept">カスタマーサクセス</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="iv-banner-cta">
+            <a href="interview.html" class="btn btn-outline-white btn-lg">社員インタビューを見る</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -662,6 +861,7 @@
             <li><a href="index.html">ホーム</a></li>
             <li><a href="company.html">会社概要</a></li>
             <li><a href="team.html">社員紹介</a></li>
+            <li><a href="interview.html">社員インタビュー</a></li>
           </ul>
         </div>
         <div>
