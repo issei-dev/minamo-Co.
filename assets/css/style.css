@@ -1190,3 +1190,15 @@ h1, h2, h3, h4, h5, h6 {
     gap: 4px;
   }
 }
+/* File: assets/css/style.css に追記 */
+/* ナビ項目のラベル長に対応 */
+@media (min-width: 961px) and (max-width: 1180px) {
+  .nav-links {
+    gap: 18px;
+  }
+
+  .nav-links .nav-link {
+    font-size: 0.8125rem;
+    letter-spacing: 0;
+  }
+}
