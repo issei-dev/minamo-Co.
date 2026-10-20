@@ -1,12 +1,23 @@
-<!-- Output: html -->
+<!-- Output: html --><!-- Filename: team -->
+<!-- File: team.html -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>社員紹介｜株式会社ミナモ（MINAMO Inc.）</title>
-  <meta name="description" content="株式会社ミナモ（MINAMO Inc.）のメンバー紹介ページです。経営、広告運用、クリエイティブ、テクノロジー、コンサルティングなど、各専門性を持つ社員をご紹介します。">
+  <meta name="description" content="株式会社ミナモ（MINAMO Inc.）のメンバー紹介ページです。経営、広告運用、クリエイティブ、テクノロジー、コンサルティングなど、各専門性を持つ社員16名をご紹介します。">
+  <link rel="canonical" href="https://minamo-inc.github.io/team.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="株式会社ミナモ（MINAMO Inc.）">
+  <meta property="og:title" content="社員紹介｜株式会社ミナモ（MINAMO Inc.）">
+  <meta property="og:description" content="異なる専門性をかけ合わせ、一社一社の事業成長に寄り添うミナモのメンバーをご紹介します。">
+  <meta property="og:url" content="https://minamo-inc.github.io/team.html">
+  <meta property="og:image" content="https://minamo-inc.github.io/assets/images/ogp-default.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="alternate icon" href="assets/images/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/animations.css">
   <style>
@@ -37,10 +48,150 @@
       object-position: center top;
     }
 
+    /* ===== 入社年バッジ ===== */
+    .team-join {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+      padding: 3px 9px;
+      border-radius: 4px;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      line-height: 1.5;
+      white-space: nowrap;
+    }
+
+    .team-join::before {
+      content: "";
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: currentColor;
+      flex: none;
+    }
+
+    /* 2023年 創業メンバー */
+    .team-join.j-founder {
+      color: #0B1B34;
+      background: rgba(11, 27, 52, 0.08);
+    }
+
+    /* 2026年 入社（中途） */
+    .team-join.j-2026 {
+      color: #1A5BD8;
+      background: rgba(26, 91, 216, 0.09);
+    }
+
+    /* 2027年 新卒入社 */
+    .team-join.j-2027 {
+      color: #0E7C8A;
+      background: rgba(52, 198, 217, 0.16);
+    }
+
+    /* ===== グループ見出し ===== */
+    .team-group-head {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin: 56px 0 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--color-border, #E3E8EF);
+    }
+
+    .team-group-head:first-of-type {
+      margin-top: 32px;
+    }
+
+    .team-group-head h3 {
+      font-size: 1.125rem;
+      font-weight: 800;
+      color: var(--color-navy, #0B1B34);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .team-group-head .count {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--color-text-light, #94A3B8);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .team-group-head .note {
+      font-size: 0.8125rem;
+      line-height: 1.8;
+      color: var(--color-text-muted, #5B6472);
+      flex: 1 1 100%;
+      margin: 4px 0 0;
+    }
+
+    /* ===== 構成サマリー ===== */
+    .team-summary {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-bottom: 8px;
+    }
+
+    .team-summary-item {
+      padding: 20px 22px;
+      border: 1px solid var(--color-border, #E3E8EF);
+      border-radius: 12px;
+      background: #F8FAFC;
+    }
+
+    .team-summary-item .lb {
+      font-size: 0.6875rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: var(--color-primary, #1A5BD8);
+      margin: 0 0 10px;
+    }
+
+    .team-summary-item .vl {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--color-navy, #0B1B34);
+      line-height: 1.2;
+      margin: 0 0 6px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .team-summary-item .vl small {
+      font-size: 0.8125rem;
+      font-weight: 700;
+      margin-left: 3px;
+    }
+
+    .team-summary-item .tx {
+      font-size: 0.75rem;
+      line-height: 1.75;
+      color: var(--color-text-muted, #5B6472);
+      margin: 0;
+    }
+
     @media (max-width: 767px) {
       .team-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 16px;
+      }
+
+      .team-summary {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .team-group-head {
+        margin: 44px 0 18px;
+      }
+
+      .team-join {
+        font-size: 0.625rem;
+        padding: 2px 7px;
       }
     }
   </style>
@@ -120,10 +271,39 @@
         <h2 class="section-title">ミナモのメンバー</h2>
       </div>
 
+      <!-- 構成サマリー -->
+      <div class="team-summary reveal reveal-delay-1">
+        <div class="team-summary-item">
+          <p class="lb">MEMBERS</p>
+          <p class="vl">16<small>名</small></p>
+          <p class="tx">全員が正社員です。役員・業務委託の在籍はありません。</p>
+        </div>
+        <div class="team-summary-item">
+          <p class="lb">TEAMS</p>
+          <p class="vl">6<small>チーム</small></p>
+          <p class="tx">経営／広告運用／クリエイティブ／テクノロジー／コンサルティング／コーポレート。</p>
+        </div>
+        <div class="team-summary-item">
+          <p class="lb">NEW GRADUATES</p>
+          <p class="vl">5<small>名</small></p>
+          <p class="tx">2027年4月、創業以来はじめての新卒メンバーが加わりました。</p>
+        </div>
+      </div>
+
       <!-- 画像ファイルは assets/images/members/ に配置してください -->
+
+      <!-- ===== 2023年 創業メンバー ===== -->
+      <div class="team-group-head reveal">
+        <h3>2023年 創業メンバー</h3>
+        <span class="count">6 MEMBERS</span>
+        <p class="note">
+          大学の同期とサークルの仲間で立ち上げたメンバーです。2024年4月に、代表を含む全員が正社員となりました。
+        </p>
+      </div>
+
       <div class="team-grid reveal reveal-delay-1">
         <!-- 1. 三浦 湊（経営） -->
-        <div class="team-card">
+        <div class="team-card" data-join="2023">
           <div class="team-photo-wrap">
             <img
               src="assets/images/members/miura-minato.JPG"
@@ -137,14 +317,15 @@
           <div class="team-info">
             <h3 class="team-name">三浦 湊</h3>
             <p class="team-role">経営</p>
+            <p class="team-join j-founder">2023年 創業メンバー</p>
           </div>
         </div>
 
         <!-- 2. 白石 佳澄（広告運用チーム） -->
-        <div class="team-card">
+        <div class="team-card" data-join="2023">
           <div class="team-photo-wrap">
             <img
-              src="assets/images/白石 佳澄コーポ.png"
+              src="assets/images/白石 佳澄コーポ.png"
               alt="白石 佳澄"
               width="800"
               height="1200"
@@ -155,14 +336,15 @@
           <div class="team-info">
             <h3 class="team-name">白石 佳澄</h3>
             <p class="team-role">広告運用チーム</p>
+            <p class="team-join j-founder">2023年 創業メンバー</p>
           </div>
         </div>
 
         <!-- 3. 東 実咲（経理／広告運用） -->
-        <div class="team-card">
+        <div class="team-card" data-join="2023">
           <div class="team-photo-wrap">
             <img
-              src="assets/images/東 実咲コーポ.png"
+              src="assets/images/東 実咲コーポ.png"
               alt="東 実咲"
               width="800"
               height="1200"
@@ -173,14 +355,15 @@
           <div class="team-info">
             <h3 class="team-name">東 実咲</h3>
             <p class="team-role">経理／広告運用</p>
+            <p class="team-join j-founder">2023年 創業メンバー</p>
           </div>
         </div>
 
         <!-- 4. 桐谷 遥（クリエイティブチーム） -->
-        <div class="team-card">
+        <div class="team-card" data-join="2023">
           <div class="team-photo-wrap">
             <img
-              src="assets/images/桐谷 遥コーポ.png"
+              src="assets/images/桐谷 遥コーポ.png"
               alt="桐谷 遥"
               width="800"
               height="1200"
@@ -191,14 +374,15 @@
           <div class="team-info">
             <h3 class="team-name">桐谷 遥</h3>
             <p class="team-role">クリエイティブチーム</p>
+            <p class="team-join j-founder">2023年 創業メンバー</p>
           </div>
         </div>
 
         <!-- 5. 相馬 千裕（テクノロジーチーム） -->
-        <div class="team-card">
+        <div class="team-card" data-join="2023">
           <div class="team-photo-wrap">
             <img
-              src="assets/images/相馬 千裕コーポ.png"
+              src="assets/images/相馬 千裕コーポ.png"
               alt="相馬 千裕"
               width="800"
               height="1200"
@@ -209,14 +393,15 @@
           <div class="team-info">
             <h3 class="team-name">相馬 千裕</h3>
             <p class="team-role">テクノロジーチーム</p>
+            <p class="team-join j-founder">2023年 創業メンバー</p>
           </div>
         </div>
 
         <!-- 6. 久保 果林（カスタマーサクセス） -->
-        <div class="team-card">
+        <div class="team-card" data-join="2023">
           <div class="team-photo-wrap">
             <img
-              src="assets/images/久保 果林コーポ.png"
+              src="assets/images/久保 果林コーポ.png"
               alt="久保 果林"
               width="800"
               height="1200"
@@ -227,11 +412,23 @@
           <div class="team-info">
             <h3 class="team-name">久保 果林</h3>
             <p class="team-role">カスタマーサクセス</p>
+            <p class="team-join j-founder">2023年 創業メンバー</p>
           </div>
         </div>
+      </div>
 
+      <!-- ===== 2026年 入社 ===== -->
+      <div class="team-group-head reveal">
+        <h3>2026年 入社</h3>
+        <span class="count">5 MEMBERS</span>
+        <p class="note">
+          事業拡大にともない、各領域の専門性を担うメンバーが加わりました。オフィス移転と同じ年に、組織が倍近くになった年度です。
+        </p>
+      </div>
+
+      <div class="team-grid reveal reveal-delay-1">
         <!-- 7. 藤崎 千夏（コンサルティングチーム） -->
-        <div class="team-card">
+        <div class="team-card" data-join="2026">
           <div class="team-photo-wrap">
             <img
               src="assets/images/藤崎 千夏コーポ.PNG"
@@ -245,11 +442,12 @@
           <div class="team-info">
             <h3 class="team-name">藤崎 千夏</h3>
             <p class="team-role">コンサルティングチーム</p>
+            <p class="team-join j-2026">2026年 入社</p>
           </div>
         </div>
 
         <!-- 8. 大槻 詩織（テクノロジーチーム） -->
-        <div class="team-card">
+        <div class="team-card" data-join="2026">
           <div class="team-photo-wrap">
             <img
               src="assets/images/大槻 詩織コーポ.PNG"
@@ -263,11 +461,12 @@
           <div class="team-info">
             <h3 class="team-name">大槻 詩織</h3>
             <p class="team-role">テクノロジーチーム</p>
+            <p class="team-join j-2026">2026年 入社</p>
           </div>
         </div>
 
         <!-- 9. 新見 楓（クリエイティブチーム） -->
-        <div class="team-card">
+        <div class="team-card" data-join="2026">
           <div class="team-photo-wrap">
             <img
               src="assets/images/新見 楓コーポ.PNG"
@@ -281,11 +480,12 @@
           <div class="team-info">
             <h3 class="team-name">新見 楓</h3>
             <p class="team-role">クリエイティブチーム</p>
+            <p class="team-join j-2026">2026年 入社</p>
           </div>
         </div>
 
         <!-- 10. 芦田 実祐（広告運用チーム） -->
-        <div class="team-card">
+        <div class="team-card" data-join="2026">
           <div class="team-photo-wrap">
             <img
               src="assets/images/芦田 実祐コーポ.PNG"
@@ -299,11 +499,12 @@
           <div class="team-info">
             <h3 class="team-name">芦田 実祐</h3>
             <p class="team-role">広告運用チーム</p>
+            <p class="team-join j-2026">2026年 入社</p>
           </div>
         </div>
 
         <!-- 11. 長谷部 凪（コーポレート） -->
-        <div class="team-card">
+        <div class="team-card" data-join="2026">
           <div class="team-photo-wrap">
             <img
               src="assets/images/長谷部 凪コーポ.jpg"
@@ -317,6 +518,113 @@
           <div class="team-info">
             <h3 class="team-name">長谷部 凪</h3>
             <p class="team-role">コーポレート</p>
+            <p class="team-join j-2026">2026年 入社</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== 2027年 新卒入社 ===== -->
+      <div class="team-group-head reveal">
+        <h3>2027年 新卒入社</h3>
+        <span class="count">5 MEMBERS</span>
+        <p class="note">
+          創業以来はじめての新卒メンバーです。2026年夏のインターン合宿を経て、5名全員が入社しました。
+        </p>
+      </div>
+
+      <div class="team-grid reveal reveal-delay-1">
+        <!-- 12. 瀬川 芽依（広告運用チーム） -->
+        <div class="team-card" data-join="2027">
+          <div class="team-photo-wrap">
+            <img
+              src="assets/images/members/segawa-mei.png"
+              alt="瀬川 芽依"
+              width="800"
+              height="1200"
+              loading="lazy"
+              decoding="async"
+            >
+          </div>
+          <div class="team-info">
+            <h3 class="team-name">瀬川 芽依</h3>
+            <p class="team-role">広告運用チーム</p>
+            <p class="team-join j-2027">2027年 新卒入社</p>
+          </div>
+        </div>
+
+        <!-- 13. 真壁 彩葉（コンサルティングチーム） -->
+        <div class="team-card" data-join="2027">
+          <div class="team-photo-wrap">
+            <img
+              src="assets/images/members/makabe-iroha.png"
+              alt="真壁 彩葉"
+              width="800"
+              height="1200"
+              loading="lazy"
+              decoding="async"
+            >
+          </div>
+          <div class="team-info">
+            <h3 class="team-name">真壁 彩葉</h3>
+            <p class="team-role">コンサルティングチーム</p>
+            <p class="team-join j-2027">2027年 新卒入社</p>
+          </div>
+        </div>
+
+        <!-- 14. 戸倉 鈴（クリエイティブチーム） -->
+        <div class="team-card" data-join="2027">
+          <div class="team-photo-wrap">
+            <img
+              src="assets/images/members/tokura-rin.png"
+              alt="戸倉 鈴"
+              width="800"
+              height="1200"
+              loading="lazy"
+              decoding="async"
+            >
+          </div>
+          <div class="team-info">
+            <h3 class="team-name">戸倉 鈴</h3>
+            <p class="team-role">クリエイティブチーム</p>
+            <p class="team-join j-2027">2027年 新卒入社</p>
+          </div>
+        </div>
+
+        <!-- 15. 日野 千尋（テクノロジーチーム） -->
+        <div class="team-card" data-join="2027">
+          <div class="team-photo-wrap">
+            <img
+              src="assets/images/members/hino-chihiro.png"
+              alt="日野 千尋"
+              width="800"
+              height="1200"
+              loading="lazy"
+              decoding="async"
+            >
+          </div>
+          <div class="team-info">
+            <h3 class="team-name">日野 千尋</h3>
+            <p class="team-role">テクノロジーチーム</p>
+            <p class="team-join j-2027">2027年 新卒入社</p>
+          </div>
+        </div>
+
+        <!-- 16. 梶 陽菜（カスタマーサクセス） -->
+        <div class="team-card" data-join="2027">
+          <div class="team-photo-wrap">
+            <img
+              src="assets/images/members/kaji-hina.png"
+              alt="梶 陽菜"
+              width="800"
+              height="1200"
+              loading="lazy"
+              decoding="async"
+            >
+          </div>
+          <div class="team-info">
+            <h3 class="team-name">梶 陽菜</h3>
+            <p class="team-role">カスタマーサクセス</p>
+            <p class="team-join j-2027">2027年 新卒入社</p>
           </div>
         </div>
       </div>
@@ -373,7 +681,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <div>&copy; 2026 MINAMO Inc. All Rights Reserved.</div>
+        <div>&copy; <span data-current-year>2026</span> MINAMO Inc. All Rights Reserved.</div>
         <div>株式会社ミナモ（MINAMO Inc.）</div>
       </div>
     </div>
@@ -409,7 +717,11 @@
           <button class="btn btn-outline btn-sm" data-close-modal style="margin-top: 24px;">閉じる</button>
         </div>
 
-        <form id="contact-form">
+        <form id="contact-form" action="https://formspree.io/f/XXXXXXXX" method="POST">
+          <input type="hidden" name="_subject" value="【MINAMO】Webサイトからのお問い合わせ">
+          <input type="hidden" name="_replyto" value="">
+          <input type="hidden" name="_page" value="team.html">
+
           <div class="form-group">
             <label class="form-label" for="contact-name">お名前<span class="badge-req">必須</span></label>
             <input class="form-input" type="text" id="contact-name" name="name" placeholder="山田 太郎" required>
@@ -443,6 +755,6 @@
     </div>
   </div>
 
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
