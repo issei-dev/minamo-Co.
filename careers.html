@@ -87,14 +87,19 @@
         <img src="assets/images/logo.svg" alt="株式会社ミナモ MINAMO Inc.">
       </a>
       <nav class="nav-desktop" aria-label="メインナビゲーション">
-        <ul class="nav-links">
-          <li><a href="index.html" class="nav-link">ホーム</a></li>
-          <li><a href="company.html" class="nav-link">会社概要</a></li>
-          <li><a href="services.html" class="nav-link">提供サービス</a></li>
-          <li><a href="team.html" class="nav-link">社員紹介</a></li>
-          <li><a href="blog.html" class="nav-link">会社ブログ</a></li>
-          <li><a href="careers.html" class="nav-link active">求人</a></li>
-        </ul>
+        <!-- Output: html -->
+<!-- File: 全ページ共通 — mobile-nav-overlay の ul を差し替え -->
+<ul class="mobile-nav-links">
+  <li><a href="index.html" class="nav-link">ホーム</a></li>
+  <li><a href="company.html" class="nav-link">会社概要</a></li>
+  <li><a href="services.html" class="nav-link">提供サービス</a></li>
+  <li><a href="team.html" class="nav-link">社員紹介・インタビュー</a></li>
+  <li><a href="blog.html" class="nav-link">会社ブログ</a></li>
+  <li><a href="careers.html" class="nav-link">求人</a></li>
+  <li style="margin-top: 16px;">
+    <button class="btn btn-primary btn-lg" data-open-modal="contact">お問い合わせ</button>
+  </li>
+</ul>
         <div class="header-cta">
           <button class="btn btn-primary btn-sm" data-open-modal="contact">
             お問い合わせ
